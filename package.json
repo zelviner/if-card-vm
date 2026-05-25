@@ -2,7 +2,7 @@
   "name": "if-card-vm",
   "displayName": "IF Card VM",
   "description": "IF 智能卡脚本语言虚拟机",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "zelvin",
   "icon": "images/icon.png",
   "engines": {
@@ -87,7 +87,27 @@
           "description": "Perso data file"
         }
       }
-    }
+    },
+    "languages": [
+      {
+        "id": "if",
+        "aliases": [
+          "IF Card",
+          "if"
+        ],
+        "extensions": [
+          ".if"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "if",
+        "scopeName": "source.if",
+        "path": "./syntaxes/if.tmLanguage.json"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
