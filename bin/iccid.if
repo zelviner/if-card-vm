@@ -1,0 +1,2 @@
+atr = (RST -> null).data
+print(atr)

@@ -1,0 +1,113 @@
+{
+  "name": "if-card-vm",
+  "displayName": "IF Card VM",
+  "description": "IF 智能卡脚本语言虚拟机",
+  "version": "0.0.1",
+  "publisher": "zelvin",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "if-card-vm.run",
+        "title": "Run IF Script"
+      },
+      {
+        "command": "if-card-vm.selectReader",
+        "title": "Select Card Reader"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "if-card-vm.run",
+          "group": "navigation",
+          "when": "resourceExtname == .if"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "if-card-vm.run",
+          "when": "resourceExtname == .if",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "IF Card VM",
+      "properties": {
+        "if-card-vm.readerType": {
+          "type": "integer",
+          "default": 0,
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "enumDescriptions": [
+            "PC/SC",
+            "Q/SC",
+            "SC/SC"
+          ],
+          "description": "Card Reader Type"
+        },
+        "if-card-vm.readerIndex": {
+          "type": "number",
+          "default": 0,
+          "description": "Card Reader Index"
+        },
+        "if-card-vm.protocol": {
+          "type": "number",
+          "default": 0,
+          "enum": [
+            0,
+            1
+          ],
+          "enumDescriptions": [
+            "ISO7816",
+            "GP"
+          ],
+          "description": "Card protocol"
+        },
+        "if-card-vm.convert": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto Convert Script"
+        },
+        "if-card-vm.dataFile": {
+          "type": "string",
+          "default": "",
+          "description": "Perso data file"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.120.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.9.1"
+  }
+}
