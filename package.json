@@ -1,8 +1,8 @@
 {
-  "name": "if-card-vm",
-  "displayName": "IF Card VM",
+  "name": "if-card-script",
+  "displayName": "IF Card Script",
   "description": "IF 智能卡脚本语言虚拟机",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "zelvin",
   "icon": "images/icon.png",
   "engines": {
